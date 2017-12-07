@@ -15,7 +15,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # 2
-mongo = MongoClient('localhost', 27017)
+mongo = MongoClient("mongodb://<trip-planner-user>:<user-password>@ds033186.mlab.com:33186/trip-planner-db-tc")
 
 # 3
 app.bcrypt_rounds = 12
