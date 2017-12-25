@@ -14,12 +14,12 @@ from until import JSONEncoder
 app = Flask(__name__)
 api = Api(app)
 
-# 2
-mongo = MongoClient("mongodb://<trip-planner-user>:<user-password>@ds033186.mlab.com:33186/trip-planner-db-tc")
+# 2å
+mongo = MongoClient("mongodb://Tony:12345678@ds131687.mlab.com:31687/trip_planner_db")
 
 # 3
 app.bcrypt_rounds = 12
-app.db = mongo.local
+app.db = mongo.trip_planner_db
 
 
 def validate_auth(email, password):
@@ -74,11 +74,8 @@ class User(Resource):
 
         user = users_collection.find_one({'_id': result.inserted_id})
 
-        # pdb.set_trace()
-
         if result is not None:
-            user.pop("password")
-            return(user, 201, {"Content-Type": "application/json", "User": "Tony TJ"})
+            return(None, 201, {"Content-Type": "application/json", "User": "Tony"})
         else:
             return (None, 400, None)
 
@@ -97,7 +94,7 @@ class User(Resource):
         )
 
         if result is not None:
-            result.pop("password")
+            result.pop('password')
             return (result, 200, None)
         else:
             return(None, 404, None)
@@ -117,8 +114,8 @@ class User(Resource):
         # pdb.set_trace()
 
         if result is not None:
-            result.pop("password")
-            return(result, 200, {"Content-Type": "application/json", "User": "Tony TJ"})
+            result.pop('password')
+            return(result, 200, {"Content-Type": "application/json", "User": "Tony"})
         else:
             return (None, 404, None)
 
@@ -134,8 +131,8 @@ class User(Resource):
         set_values = {}
         if 'email' in new_user:
             set_values['email'] = new_user["email"]
-        if 'password' in new_user:
-            set_values['password'] = new_user["password"]
+        if 'trips' in new_user:
+            set_values['trips'] = new_user["trips"]
 
         mongo_set = {'$set': set_values}
 
@@ -146,8 +143,8 @@ class User(Resource):
         )
 
         if result is not None:
-            result.pop("password")
-            return(result, 200, {"Content-Type": "application/json", "User": "Tony TJ"})
+            result.pop('password')
+            return(result, 200, {"Content-Type": "application/json", "User": "Tony"})
         else:
             return (None, 404, None)
 
@@ -213,8 +210,8 @@ class Trip(Resource):
         set_values = {}
         if 'destination' in new_destination:
             set_values['destination'] = new_destination["destination"]
-        if 'trip_length' in new_destination:
-            set_values['trip_length'] = new_destination["trip_length"]
+        if 'trip_day_amount' in new_destination:
+            set_values['trip_day_amount'] = new_destination["trip_day_amount"]
 
         mongo_set = {'$set': set_values}
 
@@ -231,7 +228,6 @@ class Trip(Resource):
 
 
 api.add_resource(User, '/users')
-
 api.add_resource(Trip, '/trips')
 
 
