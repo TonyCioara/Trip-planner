@@ -177,7 +177,7 @@ class Trip(Resource):
         # pdb.set_trace()
 
         if result is not None:
-            return(trip, 201, {"Content-Type": "application/json", "User": "Tony TJ"})
+            return(trip, 201, {"Content-Type": "application/json", "User": "Tony"})
         else:
             return (None, 400, None)
 
@@ -195,7 +195,7 @@ class Trip(Resource):
         # pdb.set_trace()
 
         if result is not None:
-            return(result, 200, {"Content-Type": "application/json", "User": "Tony TJ"})
+            return(result, 200, {"Content-Type": "application/json", "User": "Tony"})
         else:
             return (None, 404, None)
 
@@ -222,7 +222,7 @@ class Trip(Resource):
         )
 
         if result is not None:
-            return(result, 200, {"Content-Type": "application/json", "User": "Tony TJ"})
+            return(result, 200, {"Content-Type": "application/json", "User": "Tony"})
         else:
             return (None, 404, None)
 
