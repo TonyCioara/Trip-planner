@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2137C2FF1FF9B636006515AF /* Auth Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137C2FE1FF9B636006515AF /* Auth Helpers.swift */; };
+		2137C3011FF9B66E006515AF /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137C3001FF9B66E006515AF /* Networking.swift */; };
 		214C5B561FF3128F00EC4642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C5B551FF3128F00EC4642 /* AppDelegate.swift */; };
 		214C5B581FF3128F00EC4642 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C5B571FF3128F00EC4642 /* ViewController.swift */; };
 		214C5B5B1FF3128F00EC4642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214C5B591FF3128F00EC4642 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2137C2FE1FF9B636006515AF /* Auth Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth Helpers.swift"; sourceTree = "<group>"; };
+		2137C3001FF9B66E006515AF /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		214C5B521FF3128F00EC4642 /* tripPlannerFrontEnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tripPlannerFrontEnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214C5B551FF3128F00EC4642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		214C5B571FF3128F00EC4642 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +65,9 @@
 				214C5B551FF3128F00EC4642 /* AppDelegate.swift */,
 				214C5B571FF3128F00EC4642 /* ViewController.swift */,
 				214C5B671FF312D800EC4642 /* LogInVC.swift */,
+				2137C3001FF9B66E006515AF /* Networking.swift */,
 				214C5B691FF31CBA00EC4642 /* user.swift */,
+				2137C2FE1FF9B636006515AF /* Auth Helpers.swift */,
 				214C5B591FF3128F00EC4642 /* Main.storyboard */,
 				214C5B5C1FF3128F00EC4642 /* Assets.xcassets */,
 				214C5B5E1FF3128F00EC4642 /* LaunchScreen.storyboard */,
@@ -145,7 +151,9 @@
 				214C5B6A1FF31CBA00EC4642 /* user.swift in Sources */,
 				214C5B581FF3128F00EC4642 /* ViewController.swift in Sources */,
 				214C5B561FF3128F00EC4642 /* AppDelegate.swift in Sources */,
+				2137C3011FF9B66E006515AF /* Networking.swift in Sources */,
 				214C5B681FF312D800EC4642 /* LogInVC.swift in Sources */,
+				2137C2FF1FF9B636006515AF /* Auth Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

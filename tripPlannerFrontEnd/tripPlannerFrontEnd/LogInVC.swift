@@ -27,7 +27,6 @@ class LogInVC: UIViewController {
     
     func logIn (email: String, password: String) {
         let basicToken = BasicAuth.generateBasicAuthHeader(username: email, password: password)
-        logIn(basicToken)
         
         //This request has to have the proper credentials to get back the correct data, we provide the request with credentials with our authorization and parameters.
         Network.instance.fetch(route: Route.get_user, token: basicToken) { (data) in
