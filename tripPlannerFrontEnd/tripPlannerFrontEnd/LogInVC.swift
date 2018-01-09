@@ -10,6 +10,8 @@ import UIKit
 
 class LogInVC: UIViewController {
     
+    var loginUser: Any?
+    
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
@@ -30,7 +32,6 @@ class LogInVC: UIViewController {
         
         //This request has to have the proper credentials to get back the correct data, we provide the request with credentials with our authorization and parameters.
         Network.instance.fetch(route: Route.get_user, token: basicToken) { (data) in
-            //we decoded the data from the GET request
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             if let user = jsonUser {
                 
@@ -45,9 +46,27 @@ class LogInVC: UIViewController {
         }
     }
     
+    
     func signUp (email: String, password: String) {
-        print("signup called with email: \(email), and password: \(password)")
+        let basicToken = BasicAuth.generateBasicAuthHeader(username: email, password: password)
+        Network.instance.fetch(route: Route.post_user(email: email, password: password), token: basicToken) { (data) in
+
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toTrips", sender: self)
+                
+            }
+        }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "ToTrips" {
+                let tripsVC = segue.destination as! TripsVC
+                tripsVC.user = loginUser as! User
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
